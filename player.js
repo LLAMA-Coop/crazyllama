@@ -4,7 +4,7 @@ class Player {
     this.image = image;
     this.context = context;
     this.x = 0;
-    this.y = 10;
+    this.y = 260;
   }
 
   sayMyName() {
