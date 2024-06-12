@@ -42,6 +42,9 @@ function handleKeys() {
 // Game loop to continuously check for key states and update the game
 function gameLoop() {
     handleKeys();
+    player.update();
+    ctx.clearRect(0, 0, cvs.width, cvs.height); // Clear the canvas
+    player.draw();
     requestAnimationFrame(gameLoop);
 }
 

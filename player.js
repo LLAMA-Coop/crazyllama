@@ -6,16 +6,34 @@ class Player {
     this.speed = 5;
     this.x = 0;
     this.y = 260;
+    this.vy = 0; // Initial vertical velocity
+        this.gravity = 0.5; // Gravity
+        this.jumpStrength = -10; // Strength of the jump
+        this.grounded = true; // Whether the player is on the ground
   }
 
-  sayMyName() {
-    console.log(`My name is ${this.name}`);
-  }
+  // sayMyName() {
+  //   console.log(`My name is ${this.name}`);
+  // }
 
   jump() {
-    this.y = this.y-10;
-    this.y = this.y+10;
+    if (this.grounded) {
+            this.vy = this.jumpStrength;
+            this.grounded = false;
+        }
   }
+
+  update() {
+        this.vy += this.gravity; // Apply gravity
+        this.y += this.vy; // Update vertical position
+
+        // Simulate ground (simple example, y = 300 is the ground level)
+        if (this.y >= 260) {
+            this.y = 260;
+            this.vy = 0;
+            this.grounded = true;
+        }
+    }
 
   duck() {}
 
