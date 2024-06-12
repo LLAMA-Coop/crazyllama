@@ -15,7 +15,7 @@ cvs.addEventListener("click", (e) => {
     console.log("click")
 })
 
-document.addEventListener("keyup", (e) => {
+document.addEventListener("keydown", (e) => {
     console.log("Keying");
     switch (e.key) {
         case "ArrowUp":
