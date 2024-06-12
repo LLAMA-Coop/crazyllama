@@ -4,42 +4,49 @@ import update from "./update.js";
 const cvs = document.getElementById("game");
 const ctx = cvs.getContext("2d");
 const image = new Image();
-image.src = "./llama.gif"
+image.src = "./llama.gif";
 
 let player = new Player("Kiz", image, ctx);
 player.sayMyName();
-
 player.draw(ctx);
 
-cvs.addEventListener("click", (e) => {
-    console.log("click")
-})
+const keyState = {};
 
+// Listen for keydown events
 document.addEventListener("keydown", (e) => {
-    console.log("Keying");
-    switch (e.key) {
-        case "ArrowUp":
-            player.jump();
-            break;
-        case "ArrowDown":
-            player.duck();
-            break;
-        case "ArrowLeft":
-            console.log("Left key released");
-            // Move player left
-            player.moveLeft();
-            break;
-        case "ArrowRight":
-            console.log("Right key released");
-            // Move player right
-            player.moveRight();
-            break;
-        default:
-            console.log(`Key released: ${e.key}`);
-            break;
+    keyState[e.key] = true;
+    handleKeys();
+});
+
+// Listen for keyup events
+document.addEventListener("keyup", (e) => {
+    keyState[e.key] = false;
+});
+
+function handleKeys() {
+    if (keyState["ArrowUp"]) {
+        player.jump();
+    }
+    if (keyState["ArrowDown"]) {
+        player.duck();
+    }
+    if (keyState["ArrowLeft"]) {
+        player.moveLeft();
+    }
+    if (keyState["ArrowRight"]) {
+        player.moveRight();
     }
 
     // Redraw the player after movement
     ctx.clearRect(0, 0, cvs.width, cvs.height); // Clear the canvas
     player.draw();
-})
+}
+
+// Game loop to continuously check for key states and update the game
+function gameLoop() {
+    handleKeys();
+    requestAnimationFrame(gameLoop);
+}
+
+// Start the game loop
+gameLoop();

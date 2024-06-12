@@ -12,7 +12,10 @@ class Player {
     console.log(`My name is ${this.name}`);
   }
 
-  jump() {}
+  jump() {
+    this.y = this.y-10;
+    this.y = this.y+10;
+  }
 
   duck() {}
 
