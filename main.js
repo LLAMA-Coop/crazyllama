@@ -1,5 +1,4 @@
 import Player from "./player.js";
-import update from "./update.js";
 
 const cvs = document.getElementById("game");
 const ctx = cvs.getContext("2d");
@@ -7,8 +6,6 @@ const image = new Image();
 image.src = "./llama.gif";
 
 let player = new Player("Kiz", image, ctx);
-player.sayMyName();
-player.draw(ctx);
 
 const keyState = {};
 
