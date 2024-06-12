@@ -4,7 +4,7 @@ import update from "./update.js";
 const cvs = document.getElementById("game");
 const ctx = cvs.getContext("2d");
 
-let player = new Player("Kiz");
+let player = new Player("Kiz", ctx);
 player.sayMyName();
 
 player.draw(ctx);
