@@ -3,23 +3,26 @@ import update from "./update.js";
 
 const cvs = document.getElementById("game");
 const ctx = cvs.getContext("2d");
+const image = new Image();
+image.src = "./llama.gif"
 
-let player = new Player("Kiz", ctx);
+let player = new Player("Kiz", image, ctx);
 player.sayMyName();
 
 player.draw(ctx);
 
-cvs.addEventListener("keyup", (e) => {
+cvs.addEventListener("click", (e) => {
+    console.log("click")
+})
+
+document.addEventListener("keyup", (e) => {
+    console.log("Keying");
     switch (e.key) {
         case "ArrowUp":
-            console.log("Up key released");
-            // Move player up
-            player.moveUp();
+            player.jump();
             break;
         case "ArrowDown":
-            console.log("Down key released");
-            // Move player down
-            player.moveDown();
+            player.duck();
             break;
         case "ArrowLeft":
             console.log("Left key released");
@@ -38,5 +41,5 @@ cvs.addEventListener("keyup", (e) => {
 
     // Redraw the player after movement
     ctx.clearRect(0, 0, cvs.width, cvs.height); // Clear the canvas
-    player.draw(ctx);
+    player.draw();
 })
