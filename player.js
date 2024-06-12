@@ -1,15 +1,24 @@
 class Player {
-  constructor(name) {
+  constructor(name, context) {
     this.name = name;
+    this.context = context;
   }
 
   sayMyName() {
     console.log(`My name is ${this.name}`);
   }
 
-  draw(context) {
-    context.fillStyle = "blue";
-    context.fillRect(0, 0, 40, 40);
+  jump() {
+
+  }
+
+  spit() {
+    
+  }
+
+  draw() {
+    this.context.fillStyle = "blue";
+    this.context.fillRect(0, 0, 40, 40);
   }
 }
 
