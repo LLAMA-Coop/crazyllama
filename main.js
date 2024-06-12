@@ -7,7 +7,7 @@ const image = new Image();
 image.src = "./llama.gif";
 
 let player = new Player("Kiz", image, ctx);
-player.sayMyName();
+// player.sayMyName();
 player.draw(ctx);
 
 const keyState = {};
@@ -45,6 +45,9 @@ function handleKeys() {
 // Game loop to continuously check for key states and update the game
 function gameLoop() {
     handleKeys();
+    player.update();
+    ctx.clearRect(0, 0, cvs.width, cvs.height); // Clear the canvas
+    player.draw();
     requestAnimationFrame(gameLoop);
 }
 
