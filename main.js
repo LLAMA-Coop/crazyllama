@@ -25,13 +25,9 @@ document.addEventListener("keyup", (e) => {
             player.duck();
             break;
         case "ArrowLeft":
-            console.log("Left key released");
-            // Move player left
             player.moveLeft();
             break;
         case "ArrowRight":
-            console.log("Right key released");
-            // Move player right
             player.moveRight();
             break;
         default:

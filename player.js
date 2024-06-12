@@ -5,14 +5,18 @@ class Player {
     this.context = context;
     this.speed = 5;
     this.x = 0;
-    this.y = 10;
+    this.y = 50;
   }
 
   sayMyName() {
     console.log(`My name is ${this.name}`);
   }
 
-  jump() {}
+  jump() {
+    for (let i = 0; i < 10; i++) {
+      
+    }
+  }
 
   duck() {}
 
@@ -27,8 +31,6 @@ class Player {
   spit() {}
 
   draw() {
-    // this.context.fillStyle = "blue";
-    // this.context.fillRect(this.x, this.y, 40, 40);
     this.context.drawImage(this.image, this.x, this.y);
   }
 }
