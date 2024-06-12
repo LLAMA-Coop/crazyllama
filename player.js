@@ -5,7 +5,7 @@ class Player {
     this.context = context;
     this.speed = 5;
     this.x = 0;
-    this.y = 50;
+    this.y = 260;
   }
 
   sayMyName() {
@@ -13,9 +13,8 @@ class Player {
   }
 
   jump() {
-    for (let i = 0; i < 10; i++) {
-      
-    }
+    this.y = this.y-10;
+    this.y = this.y+10;
   }
 
   duck() {}
